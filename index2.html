@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Boletim Graduacao - USP</title>
+    <style>
+        :root {
+            --primaryColor: #003366;
+            --secondaryColor: #4682B4;
+            --successColor: #2e7d32;
+            --backgroundColor: #f4f6f9;
+            --textColor: #333333;
+            --cardBackground: #ffffff;
+            --borderColor: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--backgroundColor);
+            color: var(--textColor);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .mainContainer {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--cardBackground);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Header corporativo */
+        .headerSystem {
+            background-color: var(--primaryColor);
+            color: #ffffff;
+            padding: 25px;
+            border-bottom: 5px solid var(--secondaryColor);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logoContainer {
+            background-color: #ffffff;
+            padding: 6px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .headerLogo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .headerText {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .headerSystem h1 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .headerSystem p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        /* Secao de dados do aluno */
+        .studentInfoSection {
+            padding: 25px;
+            background-color: #fafafa;
+            border-bottom: 1px solid var(--borderColor);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .infoBlock {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .infoLabel {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #777777;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .infoValue {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        /* Area de dados e tabela */
+        .reportCardSection {
+            padding: 25px;
+            overflow-x: auto;
+        }
+
+        .reportCardSection h2 {
+            font-size: 18px;
+            color: var(--primaryColor);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondaryColor);
+            padding-left: 10px;
+        }
+
+        .academicTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .academicTable th {
+            background-color: #f0f4f8;
+            color: var(--primaryColor);
+            padding: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--borderColor);
+        }
+
+        .academicTable td {
+            padding: 14px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--borderColor);
+            color: #444444;
+        }
+
+        .academicTable tbody tr:hover {
+            background-color: #f9fbfd;
+        }
+
+        /* Badges de Status */
+        .statusBadge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .statusApproved {
+            background-color: #e8f5e9;
+            color: var(--successColor);
+        }
+
+        .gradeMax {
+            color: var(--successColor);
+            font-weight: 800;
+        }
+
+        /* Rodape institucional */
+        .footerSystem {
+            background-color: #eeeeee;
+            padding: 15px 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid var(--borderColor);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mainContainer">
+        <header class="headerSystem">
+            <div class="logoContainer">
+                <img src="USP-Brasão.jpg" alt="Logotipo USP" class="headerLogo">
+            </div>
+            <div class="headerText">
+                <h1>USP · JupiterWeb</h1>
+                <p>Sistema de Acompanhamento Acadêmico da Graduação</p>
+            </div>
+        </header>
+
+        <section class="studentInfoSection">
+            <div class="infoBlock">
+                <span class="infoLabel">Nome do Aluno</span>
+                <span class="infoValue">Rafael Pintas Mendes</span>
+            </div>
+            <div class="infoBlock">
+                <span class="infoLabel">Curso</span>
+                <span class="infoValue">Oceanografia (Bacharelado)</span>
+            </div>
+            <div class="infoBlock">
+                <span class="infoLabel">Unidade Acadêmica</span>
+                <span class="infoValue">Instituto Oceanográfico (IOUSP)</span>
+            </div>
+            <div class="infoBlock">
+                <span class="infoLabel">Ano Letivo / Semestre</span>
+                <span class="infoValue">2026 / 1º Semestre</span>
+            </div>
+        </section>
+
+        <section class="reportCardSection">
+            <h2>Boletim Informativo de Notas e Frequências</h2>
+            
+            <table class="academicTable">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Disciplina</th>
+                        <th>Nota Final</th>
+                        <th>Frequência</th>
+                        <th>Faltas</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IOF0101</td>
+                        <td>Introdução a Oceanografia</td>
+                        <td class="gradeMax">10.0</td>
+                        <td>100%</td>
+                        <td>0</td>
+                        <td><span class="statusBadge statusApproved">Aprovado</span></td>
+                    </tr>
+                    <tr>
+                        <td>MAT2453</td>
+                        <td>Cálculo Diferencial e Integral I</td>
+                        <td>7.2</td>
+                        <td>88%</td>
+                        <td>8</td>
+                        <td><span class="statusBadge statusApproved">Aprovado</span></td>
+                    </tr>
+                    <tr>
+                        <td>FAP2203</td>
+                        <td>Física I para Oceanografia</td>
+                        <td>6.8</td>
+                        <td>90%</td>
+                        <td>6</td>
+                        <td><span class="statusBadge statusApproved">Aprovado</span></td>
+                    </tr>
+                    <tr>
+                        <td>QFL0603</td>
+                        <td>Química Geral para Oceanografia</td>
+                        <td>8.1</td>
+                        <td>95%</td>
+                        <td>4</td>
+                        <td><span class="statusBadge statusApproved">Aprovado</span></td>
+                    </tr>
+                    <tr>
+                        <td>IOF0111</td>
+                        <td>Biologia Oceânica Geral</td>
+                        <td>8.9</td>
+                        <td>97%</td>
+                        <td>2</td>
+                        <td><span class="statusBadge statusApproved">Aprovado</span></td>
+                    </tr>
+                    <tr>
+                        <td>IOF0121</td>
+                        <td>Geologia Oceânica Geral</td>
+                        <td>9.0</td>
+                        <td>94%</td>
+                        <td>5</td>
+                        <td><span class="statusBadge statusApproved">Aprovado</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="footerSystem">
+            <p>© 2026 Universidade de São Paulo - Sistema Acadêmico Gerencial - Dados em conformidade com os requisitos institucionais.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
